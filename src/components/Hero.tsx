@@ -97,7 +97,7 @@ export default function Hero() {
             
             <div className="w-full h-full relative group overflow-hidden">
               <img 
-                src="/portrait.jpg" 
+                src="portrait.jpg" 
                 alt="Self Portrait" 
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 referrerPolicy="no-referrer"
