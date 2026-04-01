@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
 import { ArrowDownRight, Play, Camera, BookOpen } from 'lucide-react';
+import portraitImg from '/portrait.jpg?url';
 
 export default function Hero() {
   const fullText = "Hi there! I’m a visual artist, video editor, and professional observer of everyday things. My brain is basically a mix of vivid movie scenes, random story ideas, and a constant urge to create. You’ll usually find me stitching together visuals, patiently tweaking stop-motion animations, or diving into hands-on crafts. I love taking the stories floating around in my head and turning them into something you can actually see and feel.";
@@ -97,7 +98,7 @@ export default function Hero() {
             
             <div className="w-full h-full relative group overflow-hidden">
               <img 
-                src={`${import.meta.env.BASE_URL}portrait.jpg`} 
+                src={portraitImg} 
                 alt="Self Portrait" 
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 referrerPolicy="no-referrer"
