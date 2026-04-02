@@ -58,8 +58,8 @@ export default function Works() {
         
         <div className="flex flex-col md:flex-row justify-between items-end mb-20">
           <div>
-            <h2 className="font-serif text-5xl md:text-7xl uppercase tracking-tighter">
-              Selected <span className="italic text-accent">Works</span>
+            <h2 className="font-serif text-5xl md:text-7xl uppercase tracking-tighter group cursor-default">
+              <span className="text-ink group-hover:text-accent transition-colors duration-500">Selected</span> <span className="italic text-accent group-hover:text-ink transition-colors duration-500">Works</span>
             </h2>
             <p className="font-mono text-xs uppercase tracking-widest mt-4">Archive 2024—2026</p>
           </div>

@@ -45,7 +45,7 @@ export default function Hero() {
             initial={{ opacity: 0, scale: 2, rotate: 15 }}
             animate={{ opacity: 0.9, scale: 1, rotate: -3 }}
             transition={{ duration: 0.5, delay: 0.1, type: "spring", stiffness: 200, damping: 12 }}
-            className="font-serif text-6xl md:text-8xl lg:text-[7.5rem] leading-[0.85] tracking-tighter uppercase text-accent border-[6px] md:border-[12px] border-accent p-4 md:p-8 rounded-2xl mix-blend-multiply inline-block"
+            className="font-serif text-5xl md:text-7xl lg:text-[5.5rem] leading-[0.95] tracking-tight uppercase text-accent border-[4px] md:border-[8px] border-accent p-4 md:p-6 rounded-2xl mix-blend-multiply inline-block hover:text-ink hover:border-ink transition-colors duration-300 cursor-default"
           >
             Sakshith <br />
             <span className="italic">Kotian</span>
@@ -55,7 +55,7 @@ export default function Hero() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="font-mono text-sm md:text-base mt-8 max-w-lg leading-relaxed min-h-[180px] md:min-h-[120px]"
+            className="font-mono text-sm md:text-base lg:text-lg mt-8 max-w-2xl leading-relaxed min-h-[160px] md:min-h-[120px]"
           >
             {displayedText}
             <motion.span

@@ -13,9 +13,9 @@ export default function Stories() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="font-serif text-5xl md:text-7xl uppercase tracking-tighter"
+            className="font-serif text-5xl md:text-7xl uppercase tracking-tighter group cursor-default"
           >
-            Blogs & <span className="italic text-accent">Stories</span>
+            <span className="text-paper group-hover:text-accent transition-colors duration-500">Blogs &</span> <span className="italic text-accent group-hover:text-paper transition-colors duration-500">Stories</span>
           </motion.h2>
           <motion.div 
             initial={{ opacity: 0, scaleX: 0 }}
