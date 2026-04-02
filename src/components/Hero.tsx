@@ -95,15 +95,60 @@ export default function Hero() {
               * pinned
             </motion.div>
             
-            <div className="w-full h-full relative group overflow-hidden">
-              <img 
-                src="https://lh3.googleusercontent.com/d/1G1AHIQAGF5vkntP1sQ0TCXFfaY7f1zt5" 
-                alt="Self Portrait" 
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                referrerPolicy="no-referrer"
+            <motion.div 
+              initial="initial"
+              whileHover="hover"
+              className="w-full h-full relative group overflow-hidden cursor-pointer"
+            >
+              <motion.div
+                variants={{
+                  initial: { scale: 1 },
+                  hover: { scale: 0.97 }
+                }}
+                transition={{ type: "spring", stiffness: 500, damping: 15 }}
+                className="w-full h-full relative"
+              >
+                {/* Hover Image */}
+                <img 
+                  src="https://lh3.googleusercontent.com/d/1Crhr0U9nAEVU5dnFn7acPXMsi2uLxDZt" 
+                  alt="Portrait Hover" 
+                  className="absolute inset-0 w-full h-full object-cover"
+                  referrerPolicy="no-referrer"
+                />
+                {/* Main Image */}
+                <img 
+                  src="https://lh3.googleusercontent.com/d/1G1AHIQAGF5vkntP1sQ0TCXFfaY7f1zt5" 
+                  alt="Portrait" 
+                  className="relative w-full h-full object-cover transition-opacity duration-100 group-hover:opacity-0"
+                  referrerPolicy="no-referrer"
+                />
+              </motion.div>
+              
+              {/* Flash Overlay */}
+              <motion.div 
+                variants={{
+                  initial: { opacity: 0 },
+                  hover: { 
+                    opacity: [0, 1, 0],
+                    transition: { duration: 0.3, times: [0, 0.2, 1] }
+                  }
+                }}
+                className="absolute inset-0 bg-white pointer-events-none z-30"
               />
-            </div>
-            <p className="font-mono text-[10px] uppercase mt-2 text-ink/70">Fig 1. Self Portrait</p>
+              
+              {/* Shutter Sound Simulation (Visual) */}
+              <motion.div 
+                variants={{
+                  initial: { opacity: 0 },
+                  hover: { 
+                    opacity: [0, 0.8, 0],
+                    transition: { duration: 0.1, times: [0, 0.5, 1] }
+                  }
+                }}
+                className="absolute inset-0 bg-black pointer-events-none z-20"
+              />
+            </motion.div>
+            <p className="font-mono text-[10px] uppercase mt-2 text-ink/70">Fig 1. Portrait</p>
             {/* Tape */}
             <div className="absolute -bottom-3 right-4 w-16 h-6 tape rotate-3 z-20"></div>
           </motion.div>
