@@ -1,12 +1,14 @@
-import { motion } from 'motion/react';
-import { Play, ArrowRight } from 'lucide-react';
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
+import { Play, ArrowRight, X } from 'lucide-react';
 
 const videos = [
   {
     id: 'V01',
-    title: 'Echoes of the City',
-    category: 'Short Film / Director',
-    image: 'https://picsum.photos/seed/video1/1920/1080?grayscale',
+    title: 'Kambala of Karnataka',
+    category: 'Documentary / Video editor',
+    image: 'https://img.youtube.com/vi/u7ftGJxWudA/maxresdefault.jpg',
+    videoUrl: 'https://www.youtube.com/embed/u7ftGJxWudA?autoplay=1',
     rotation: '-rotate-1',
   },
   {
@@ -14,6 +16,7 @@ const videos = [
     title: 'Neon Dreams',
     category: 'Music Video / Editor',
     image: 'https://picsum.photos/seed/video2/1920/1080?grayscale',
+    videoUrl: '',
     rotation: 'rotate-1',
   },
   {
@@ -21,6 +24,7 @@ const videos = [
     title: 'Midnight Stroll',
     category: 'Documentary / Editor',
     image: 'https://picsum.photos/seed/video3/1920/1080?grayscale',
+    videoUrl: '',
     rotation: '-rotate-2',
   },
   {
@@ -28,6 +32,7 @@ const videos = [
     title: 'Abstract Thoughts',
     category: 'Experimental / Visuals',
     image: 'https://picsum.photos/seed/video4/1920/1080?grayscale',
+    videoUrl: '',
     rotation: 'rotate-2',
   }
 ];
@@ -52,6 +57,8 @@ const photos = [
 ];
 
 export default function Works() {
+  const [activeVideo, setActiveVideo] = useState<string | null>(null);
+
   return (
     <section id="works" className="py-24 px-6 md:px-12 relative border-t border-ink/20">
       <div className="max-w-7xl mx-auto">
@@ -83,6 +90,7 @@ export default function Works() {
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.8, delay: index * 0.1 }}
                 className={`relative group`}
+                onClick={() => work.videoUrl && setActiveVideo(work.videoUrl)}
               >
                 <div className="absolute inset-0 border border-ink translate-x-3 translate-y-3 transition-transform group-hover:translate-x-4 group-hover:translate-y-4"></div>
                 
@@ -191,6 +199,40 @@ export default function Works() {
         </div>
 
       </div>
+
+      {/* Video Modal */}
+      <AnimatePresence>
+        {activeVideo && (
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[100] flex items-center justify-center bg-ink/95 p-4 md:p-10"
+            onClick={() => setActiveVideo(null)}
+          >
+            <motion.div 
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              className="relative w-full max-w-5xl aspect-video bg-black shadow-2xl"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button 
+                className="absolute -top-12 right-0 text-paper hover:text-accent transition-colors flex items-center gap-2 font-mono text-xs uppercase tracking-widest"
+                onClick={() => setActiveVideo(null)}
+              >
+                Close <X size={20} />
+              </button>
+              <iframe 
+                src={activeVideo}
+                className="w-full h-full"
+                allow="autoplay; fullscreen"
+                allowFullScreen
+              ></iframe>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 }
