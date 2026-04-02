@@ -7,7 +7,7 @@ const videos = [
     id: 'V01',
     title: 'Kambala of Karnataka',
     category: 'Documentary / Video editor',
-    image: 'https://img.youtube.com/vi/u7ftGJxWudA/maxresdefault.jpg',
+    image: 'https://lh3.googleusercontent.com/d/161CvWG_7b9BmNTTvkfAc163CSg7u1Fon',
     videoUrl: 'https://www.youtube.com/embed/u7ftGJxWudA?autoplay=1',
     rotation: '-rotate-1',
   },
